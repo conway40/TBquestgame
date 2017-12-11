@@ -81,6 +81,22 @@ namespace TB_QuestGame
                 Name = "Parrot",
                 IslandLocationID = 2,
                 Description = "A parrot.",
+            },
+
+            new Animal
+            {
+                Id = 5,
+                Name = "Monkey",
+                IslandLocationID = 4,
+                Description = "A monkey.",
+            },
+
+            new Animal
+            {
+                Id = 6,
+                Name = "Parrot",
+                IslandLocationID = 5,
+                Description = "A parrot.",
             }
 
         };
