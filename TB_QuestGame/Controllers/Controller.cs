@@ -733,16 +733,16 @@ namespace TB_QuestGame
             }
         }
 
-        private void UnlockLocation(CrewMember civilian)
-        {
-            int keys = civilian.Keys;
+        //private void UnlockLocation(CrewMember civilian)
+        //{
+        //    int keys = civilian.Keys;
 
-            if (keys != 0)
-            {
-                IslandLocation unlockedLocation = _gameUniverse.GetIslandLocationById(keys);
-                unlockedLocation.Accessible = true;
-            }
-        }
+        //    if (keys != 0)
+        //    {
+        //        IslandLocation unlockedLocation = _gameUniverse.GetIslandLocationById(keys);
+        //        unlockedLocation.Accessible = true;
+        //    }
+        //}
 
         #endregion
     }
