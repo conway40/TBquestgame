@@ -678,20 +678,27 @@ namespace TB_QuestGame
                 List<SurvivorObject> objectsToScavengeFor = _gameUniverse.GetSurvivorObjectsByIslandLocationId(8);
                 SurvivorObject foundObject = theNpc.ScavengeForObjects(objectsToScavengeFor);
 
-                _gameConsoleView.DisplayConfirmScavengerObjectAddedToInventory(foundObject);
+                if (foundObject.IslandLocationId != 0)
+                {
+                    _gameConsoleView.DisplayConfirmScavengerObjectAddedToInventory(foundObject, theNpc);
 
-                //
-                // note: survivor object is added to list and the island location is set to 0
-                //
-                _gameSurvivor.Inventory.Add(foundObject);
-                foundObject.IslandLocationId = 0;
+                    //
+                    // note: survivor object is added to list and the island location is set to 0
+                    //
+                    _gameSurvivor.Inventory.Add(foundObject);
+                    foundObject.IslandLocationId = 0;
 
-                //
-                // update experience points, health, and lives
-                //
-                _gameSurvivor.ExperiencePoints += foundObject.ExperiencePoints;
-                _gameSurvivor.Health += foundObject.HealthPoints;
-                _gameSurvivor.Lives += foundObject.Lives;
+                    //
+                    // update experience points, health, and lives
+                    //
+                    _gameSurvivor.ExperiencePoints += foundObject.ExperiencePoints;
+                    _gameSurvivor.Health += foundObject.HealthPoints;
+                    _gameSurvivor.Lives += foundObject.Lives;
+                }
+                else
+                {
+                    _gameConsoleView.DisplayScavengerErrorMessage(theNpc);
+                }
             }
         }
 

@@ -724,9 +724,14 @@ namespace TB_QuestGame
             DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.ObjectMenu, "");
         }
 
-        public void DisplayConfirmScavengerObjectAddedToInventory(SurvivorObject objectAddedToInventory)
+        public void DisplayConfirmScavengerObjectAddedToInventory(SurvivorObject objectAddedToInventory, Animal theAnimal)
         {
-            DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.NpcMenu, "");
+            DisplayGamePlayScreen("Choose Character to Ask to Scavenge", $"{theAnimal.Name} has scavenged for you and has brought back {objectAddedToInventory.Name}. It has been added to your inventory.", ActionMenu.NpcMenu, "");
+        }
+
+        public void DisplayScavengerErrorMessage(Animal theAnimal)
+        {
+            DisplayGamePlayScreen("Choose Character to Ask to Scavenge", $"There are no avaliable items for {theAnimal.Name} to scavenge for at this time.", ActionMenu.NpcMenu, "");
         }
 
         public int DisplayGetInventoryObjectToPutDown()
@@ -1106,7 +1111,7 @@ namespace TB_QuestGame
                             ClearInputBox();
                             validNpcId = true;
                             npcId = 0;
-                            DisplayGamePlayScreen("Choose Character to Speak With", "It appears this character will not scavenge for you.", ActionMenu.NpcMenu, "");
+                            DisplayGamePlayScreen("Choose Character to Ask to Scavenge", "It appears this character will not scavenge for you.", ActionMenu.NpcMenu, "");
                         }
                     }
                     else
@@ -1118,7 +1123,7 @@ namespace TB_QuestGame
             }
             else
             {
-                DisplayGamePlayScreen("Choose Character to Speak With", "It appears there are no NPCs here.", ActionMenu.NpcMenu, "");
+                DisplayGamePlayScreen("Choose Character to Ask to Scavenge", "It appears there are no NPCs here.", ActionMenu.NpcMenu, "");
             }
 
             return npcId;

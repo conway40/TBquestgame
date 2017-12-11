@@ -18,7 +18,7 @@ namespace TB_QuestGame
             if (scavengerObjects.Count > 0)
             {
                 int scavengerObjectId = rnd.Next(1, scavengerObjects.Count);
-                foundObject = scavengerObjects[scavengerObjectId];
+                foundObject = scavengerObjects[scavengerObjectId -1];
             }
 
             return foundObject;
